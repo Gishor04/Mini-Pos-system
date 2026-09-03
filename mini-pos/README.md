@@ -69,9 +69,7 @@ npx prisma migrate dev --name init
 npm run seed
 ```
 
-*Note: The seed script creates default credentials:*
-- **Email**: `admin@example.com`
-- **Password**: `password123`
+
 
 ### Step 3: Run Applications
 
