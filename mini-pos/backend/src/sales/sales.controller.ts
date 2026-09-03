@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Param, Body, UseGuards, Request, ParseIntPipe } from '@nestjs/common';
+import { Controller, Post, Get, Param, Body, UseGuards, Request, ParseIntPipe, HttpException } from '@nestjs/common';
 import { SalesService } from './sales.service';
 import { CreateSaleDto } from './dto/create-sale.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -10,8 +10,13 @@ export class SalesController {
 
   @Post()
   async createSale(@Body() createSaleDto: CreateSaleDto, @Request() req: any) {
-    const userId = req.user.sub || req.user.id;
-    return this.salesService.createSale(createSaleDto, userId);
+    try {
+      const userId = req.user.sub || req.user.id;
+      return await this.salesService.createSale(createSaleDto, userId);
+    } catch (e: any) {
+      console.error('CREATE SALE ERROR:', e);
+      throw new HttpException({ error: e.message, stack: e.stack }, 500);
+    }
   }
 
   @Get()

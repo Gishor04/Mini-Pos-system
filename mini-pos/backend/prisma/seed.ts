@@ -48,12 +48,35 @@ async function main() {
   if (count === 0) {
     await prisma.product.createMany({
       data: [
-        { name: 'Fresh Milk 1L', category: 'Dairy', sku: 'MILK-001', price: new Prisma.Decimal(2.50), stockQuantity: 50 },
-        { name: 'Whole Wheat Bread', category: 'Bakery', sku: 'BREAD-001', price: new Prisma.Decimal(1.80), stockQuantity: 30 },
-        { name: 'Basmati Rice 5kg', category: 'Grocery', sku: 'RICE-001', price: new Prisma.Decimal(12.00), stockQuantity: 20 },
-        { name: 'Organic Eggs (12 pcs)', category: 'Dairy', sku: 'EGGS-001', price: new Prisma.Decimal(3.50), stockQuantity: 40 },
+        // Beverages
+        { name: 'Fresh Milk 1L', category: 'Beverages', sku: 'MILK-001', price: new Prisma.Decimal(2.50), stockQuantity: 50 },
         { name: 'Arabica Coffee Beans 250g', category: 'Beverages', sku: 'COFFEE-001', price: new Prisma.Decimal(8.50), stockQuantity: 25 },
-        { name: 'Potato Chips', category: 'Snacks', sku: 'CHIPS-001', price: new Prisma.Decimal(4.50), stockQuantity: 45 },
+        { name: 'Classic Cola 500ml', category: 'Beverages', sku: 'COLA-001', price: new Prisma.Decimal(1.50), stockQuantity: 100 },
+        { name: 'Orange Juice 1L', category: 'Beverages', sku: 'JUICE-001', price: new Prisma.Decimal(3.20), stockQuantity: 40 },
+        
+        // Bakery
+        { name: 'Whole Wheat Bread', category: 'Bakery', sku: 'BREAD-001', price: new Prisma.Decimal(1.80), stockQuantity: 30 },
+        { name: 'Butter Croissant', category: 'Bakery', sku: 'CROI-001', price: new Prisma.Decimal(2.20), stockQuantity: 15 },
+        { name: 'Blueberry Muffin', category: 'Bakery', sku: 'MUFF-001', price: new Prisma.Decimal(2.80), stockQuantity: 20 },
+        { name: 'Chocolate Cake Slice', category: 'Bakery', sku: 'CAKE-001', price: new Prisma.Decimal(4.50), stockQuantity: 10 },
+        
+        // Grocery
+        { name: 'Basmati Rice 5kg', category: 'Grocery', sku: 'RICE-001', price: new Prisma.Decimal(12.00), stockQuantity: 20 },
+        { name: 'Olive Oil 500ml', category: 'Grocery', sku: 'OIL-001', price: new Prisma.Decimal(7.50), stockQuantity: 35 },
+        { name: 'Pasta Spaghetti 500g', category: 'Grocery', sku: 'PASTA-001', price: new Prisma.Decimal(1.20), stockQuantity: 60 },
+        { name: 'Tomato Ketchup 400g', category: 'Grocery', sku: 'KETCH-001', price: new Prisma.Decimal(2.10), stockQuantity: 45 },
+        
+        // Dairy
+        { name: 'Organic Eggs (12 pcs)', category: 'Dairy', sku: 'EGGS-001', price: new Prisma.Decimal(3.50), stockQuantity: 40 },
+        { name: 'Cheddar Cheese 200g', category: 'Dairy', sku: 'CHEES-001', price: new Prisma.Decimal(4.20), stockQuantity: 25 },
+        { name: 'Greek Yogurt 500g', category: 'Dairy', sku: 'YOG-001', price: new Prisma.Decimal(3.80), stockQuantity: 30 },
+        { name: 'Salted Butter 250g', category: 'Dairy', sku: 'BUTT-001', price: new Prisma.Decimal(2.90), stockQuantity: 0 }, // Out of stock example
+        
+        // Snacks
+        { name: 'Potato Chips Salted', category: 'Snacks', sku: 'CHIPS-001', price: new Prisma.Decimal(1.50), stockQuantity: 80 },
+        { name: 'Dark Chocolate Bar 100g', category: 'Snacks', sku: 'CHOC-001', price: new Prisma.Decimal(2.50), stockQuantity: 3 }, // Low stock example
+        { name: 'Mixed Nuts 200g', category: 'Snacks', sku: 'NUTS-001', price: new Prisma.Decimal(5.50), stockQuantity: 40 },
+        { name: 'Granola Bar', category: 'Snacks', sku: 'GRAN-001', price: new Prisma.Decimal(1.00), stockQuantity: 120 },
       ],
     });
     console.log('Seeded initial catalog products');

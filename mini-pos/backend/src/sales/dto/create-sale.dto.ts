@@ -1,4 +1,4 @@
-import { IsArray, IsInt, IsNotEmpty, Min, ValidateNested } from 'class-validator';
+import { IsArray, IsInt, IsNotEmpty, Min, ValidateNested, IsNumber, IsOptional, IsString } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class CreateSaleItemDto {
@@ -9,6 +9,18 @@ export class CreateSaleItemDto {
   @IsInt()
   @Min(1, { message: 'Quantity must be at least 1' })
   quantity!: number;
+
+  @IsOptional()
+  @IsNumber()
+  unitPrice?: number;
+
+  @IsOptional()
+  @IsString()
+  productName?: string;
+
+  @IsOptional()
+  @IsString()
+  productSku?: string;
 }
 
 export class CreateSaleDto {
