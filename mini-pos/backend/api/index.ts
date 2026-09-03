@@ -12,7 +12,7 @@ async function bootstrap() {
     const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp));
     
     app.enableCors({
-      origin: '*', // Allows all origins. For production, restrict this to your frontend URL if needed
+      origin: true,
       credentials: true,
     });
     
