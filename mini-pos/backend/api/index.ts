@@ -1,0 +1,30 @@
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from '../src/app.module';
+import { ValidationPipe } from '@nestjs/common';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import * as express from 'express';
+
+const expressApp = express();
+let cachedApp: any = null;
+
+async function bootstrap() {
+  if (!cachedApp) {
+    const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp));
+    
+    app.enableCors({
+      origin: '*', // Allows all origins. For production, restrict this to your frontend URL if needed
+      credentials: true,
+    });
+    
+    app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
+    
+    await app.init();
+    cachedApp = expressApp;
+  }
+  return cachedApp;
+}
+
+export default async function handler(req: any, res: any) {
+  const app = await bootstrap();
+  app(req, res);
+}
