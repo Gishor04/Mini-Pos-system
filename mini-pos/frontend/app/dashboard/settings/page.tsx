@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import { User, Shield, Info, CreditCard } from 'lucide-react';
 import { getUser, User as AuthUser } from '@/lib/auth';
-import Navbar from '@/components/layout/navbar';
 
 export default function SettingsPage() {
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
@@ -13,9 +12,7 @@ export default function SettingsPage() {
   }, []);
 
   return (
-    <div className="flex h-screen bg-[#F4F6F8]">
-      <Navbar />
-      <div className="flex-1 p-8 overflow-y-auto">
+    <div className="flex-1 p-6 xl:p-8 flex flex-col min-w-0">
         <h1 className="text-3xl font-bold text-slate-800 mb-8">Settings</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -83,6 +80,5 @@ export default function SettingsPage() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
