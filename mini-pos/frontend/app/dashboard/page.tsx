@@ -326,7 +326,7 @@ export default function DashboardPage() {
                       <div
                         key={product.id}
                         onClick={() => !isOutOfStock && addToCart(product)}
-                        className={`group relative p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden ${
+                        className={`group relative p-4 sm:p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden min-h-[200px] ${
                           isOutOfStock
                             ? 'bg-slate-950/40 border-slate-800/30 opacity-60 grayscale-[0.5]'
                             : inCart
@@ -341,9 +341,9 @@ export default function DashboardPage() {
 
                         <div className="relative z-10 space-y-3">
                           {/* Badge & Price */}
-                          <div className="flex items-start justify-between gap-2">
+                          <div className="flex flex-col sm:flex-row items-start justify-between gap-2">
                             <span
-                              className={`px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${
+                              className={`px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider whitespace-nowrap w-fit ${
                                 isOutOfStock
                                   ? 'bg-red-500/10 text-red-400 border border-red-500/20'
                                   : isLowStock
@@ -353,7 +353,7 @@ export default function DashboardPage() {
                             >
                               {isOutOfStock ? 'Empty' : isLowStock ? `Only ${product.stockQuantity}` : `${product.stockQuantity} in stock`}
                             </span>
-                            <span className="font-mono font-black text-lg text-white bg-slate-950/50 px-2 py-0.5 rounded-lg border border-slate-800">
+                            <span className="font-mono font-black text-lg text-white bg-slate-950/50 px-2 py-0.5 rounded-lg border border-slate-800 whitespace-nowrap self-start">
                               ${Number(product.price).toFixed(2)}
                             </span>
                           </div>
@@ -369,10 +369,10 @@ export default function DashboardPage() {
                           </div>
                         </div>
 
-                        <div className="relative z-10 pt-4 mt-4 border-t border-slate-700/50">
+                        <div className="relative z-10 pt-3 sm:pt-4 mt-auto border-t border-slate-700/50">
                           <button
                             disabled={isOutOfStock}
-                            className={`w-full py-2.5 px-3 rounded-xl text-xs font-bold transition-all duration-300 flex items-center justify-center space-x-2 ${
+                            className={`w-full py-2.5 px-2 sm:px-3 rounded-xl text-xs font-bold transition-all duration-300 flex items-center justify-center space-x-1.5 sm:space-x-2 ${
                               isOutOfStock
                                 ? 'bg-slate-800/50 text-slate-600 cursor-not-allowed'
                                 : inCart
