@@ -55,9 +55,9 @@ export default function Navbar() {
         
         {/* Mobile Settings & Logout (Top Right) */}
         <div className="flex md:hidden items-center space-x-2">
-          <button className="p-2 text-slate-400 hover:text-slate-900">
+          <Link href="/dashboard/settings" className="p-2 text-slate-400 hover:text-slate-900">
             <Settings className="w-5 h-5" />
-          </button>
+          </Link>
           <button onClick={handleLogout} className="p-2 text-slate-400 hover:text-red-600">
             <LogOut className="w-5 h-5" />
           </button>
@@ -90,10 +90,10 @@ export default function Navbar() {
 
       {/* Bottom Actions (Desktop Only) */}
       <div className="hidden md:block p-4 space-y-1.5 border-t border-slate-100 mt-auto">
-        <button className="w-full flex items-center space-x-3 px-4 py-3.5 rounded-2xl text-sm font-semibold text-slate-500 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200">
+        <Link href="/dashboard/settings" className="w-full flex items-center space-x-3 px-4 py-3.5 rounded-2xl text-sm font-semibold text-slate-500 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200">
           <Settings className="w-5 h-5 text-slate-400" />
           <span>Settings</span>
-        </button>
+        </Link>
         <button
           onClick={handleLogout}
           className="w-full flex items-center space-x-3 px-4 py-3.5 rounded-2xl text-sm font-semibold text-slate-500 hover:bg-red-50 hover:text-red-600 transition-all duration-200"
