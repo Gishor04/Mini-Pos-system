@@ -89,8 +89,8 @@ export class SalesService {
       })),
       user: {
         id: userId,
-        name: 'Cashier', // Simplified for speed
-        email: 'cashier@example.com'
+        name: '', 
+        email: ''
       }
     };
   }

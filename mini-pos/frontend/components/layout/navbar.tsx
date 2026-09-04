@@ -37,7 +37,6 @@ export default function Navbar() {
     { name: 'Menu Order', href: '/dashboard', icon: ShoppingCart, adminOnly: false },
     { name: 'Inventory', href: '/products', icon: Package, adminOnly: true },
     { name: 'Analytics', href: '/sales', icon: BarChart3, adminOnly: true },
-    { name: 'Manage Payment', href: '#', icon: CreditCard, adminOnly: false },
   ];
 
   return (
